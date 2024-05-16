@@ -32,6 +32,52 @@ This project uses Terraform, an Infrastructure as Code (IaC) tool, to provision 
 
 The project is organized into modules for each component of the infrastructure. Each module includes the Terraform configuration files for that component.
 
+```
+.
+├── main.tf
+├── provider.tf
+├── variables.tf
+├── output.tf
+├── modules
+│ ├── vpc
+│ │ ├── main.tf
+│ │ ├── variables.tf
+│ │ └── output.tf
+│ ├── subnet
+│ │ ├── main.tf
+│ │ ├── variables.tf
+│ │ └── output.tf
+│ ├── nat_gateway
+│ │ ├── main.tf
+│ │ ├── variables.tf
+│ │ └── output.tf
+│ ├── security_group
+│ │ ├── main.tf
+│ │ ├── variables.tf
+│ │ └── output.tf
+│ ├── ec2
+│ │ ├── main.tf
+│ │ ├── variables.tf
+│ │ └── output.tf
+│ ├── alb
+│ │ ├── main.tf
+│ │ ├── variables.tf
+│ │ └── output.tf
+│ ├── autoscaling_group
+│ │ ├── main.tf
+│ │ ├── variables.tf
+│ │ └── output.tf
+│ ├── rds
+│ │ ├── main.tf
+│ │ ├── variables.tf
+│ │ └── output.tf
+│ └── route53
+│ ├── main.tf
+│ ├── variables.tf
+│ └── output.tf
+└── README.md
+```
+
 ## Modules
 
 ### VPC
