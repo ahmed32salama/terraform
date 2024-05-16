@@ -159,19 +159,20 @@ This module manages DNS records for the application using AWS Route 53.
 ```sh
 git clone https://github.com/ahmed32salama/terraform.git
 cd terraform-aws-infrastructure
-
+```
 ## Initialize the project
 ```sh
 terraform init
-
+```
 ## Plan the deployment
 ```sh
 terraform plan
-
+```
 ## Apply the configuration
 ```sh
 terraform apply
-
+```
 ## Destroy the infrastructure
 ```sh
 terraform destroy
+```
