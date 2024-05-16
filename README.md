@@ -78,44 +78,100 @@ The project is organized into modules for each component of the infrastructure. 
 └── README.md
 ```
 
-## Modules
+# Modules
 
-### VPC
+## VPC
 
-The VPC module provisions a Virtual Private Cloud in AWS.
+This module creates a VPC with the specified CIDR block.
 
-### Subnets
+- main.tf: Defines the VPC resource.
+- variables.tf: Declares variables for the VPC.
+- output.tf: Outputs the VPC ID.
 
-The Subnets module provisions public and private subnets within the VPC.
+## Subnets
 
-### NAT Gateway
+This module creates both public and private subnets within the VPC.
 
-The NAT Gateway module provisions a NAT gateway for the private subnets.
+- main.tf: Defines the subnet resources.
+- variables.tf: Declares variables for the subnets.
+- output.tf: Outputs the subnet IDs.
 
-### Security Group
+## NAT Gateway
 
-The Security Group module provisions security groups for the VPC.
+This module provisions a NAT gateway in the public subnet to allow outbound internet traffic for instances in the private subnet.
 
-### EC2
+- main.tf: Defines the NAT gateway and EIP resources.
+- variables.tf: Declares variables for the NAT gateway.
+- output.tf: Outputs the NAT gateway ID.
 
-The EC2 module provisions EC2 instances within the VPC.
+## Security Group
 
-### ALB
+This module creates security groups to control inbound and outbound traffic for the instances.
 
-The ALB module provisions an Application Load Balancer for the EC2 instances.
+- main.tf: Defines the security group resources.
+- variables.tf: Declares variables for the security groups.
+- output.tf: Outputs the security group IDs.
 
-### Auto Scaling Group
+## EC2
 
-The Auto Scaling Group module provisions an Auto Scaling Group for the EC2 instances.
+This module provisions EC2 instances within the VPC and subnets.
 
-### RDS
+- main.tf: Defines the EC2 instance resources.
+- variables.tf: Declares variables for the EC2 instances.
+- output.tf: Outputs the instance IDs.
 
-The RDS module provisions an RDS instance within the VPC.
+## ALB
 
-### Route 53
+This module creates an Application Load Balancer to distribute incoming traffic across multiple EC2 instances.
 
-The Route 53 module manages DNS for the infrastructure.
+- main.tf: Defines the ALB resources.
+- variables.tf: Declares variables for the ALB.
+- output.tf: Outputs the ALB DNS name.
 
-## Usage
+## Auto Scaling Group
 
-To use this project, clone the repository and run `terraform init` followed by `terraform apply`.
+This module sets up an Auto Scaling Group to ensure the application has the right number of instances running to handle the load.
+
+- main.tf: Defines the auto scaling resources.
+- variables.tf: Declares variables for the auto scaling group.
+- output.tf: Outputs the auto scaling group details.
+
+## RDS
+
+This module provisions an RDS instance within the private subnets for database needs.
+
+- main.tf: Defines the RDS resources.
+- variables.tf: Declares variables for the RDS instance.
+- output.tf: Outputs the RDS instance details.
+
+## Route 53
+
+This module manages DNS records for the application using AWS Route 53.
+
+- main.tf: Defines the Route 53 resources.
+- variables.tf: Declares variables for the Route 53 setup.
+- output.tf: Outputs the Route 53 record details.
+
+# Usage
+
+## Clone the repository
+
+```sh
+git clone https://github.com/ahmed32salama/terraform.git
+cd terraform-aws-infrastructure
+
+## Initialize the project
+```sh
+terraform init
+
+## Plan the deployment
+```sh
+terraform plan
+
+## Apply the configuration
+```sh
+terraform apply
+
+## Destroy the infrastructure
+```sh
+terraform destroy
