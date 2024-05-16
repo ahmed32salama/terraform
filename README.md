@@ -1,5 +1,4 @@
 # terraform AWS Infrastructure Project
-![Uploading 1_cHEsVNAzQvoXPy4VrExKJA.gif…]()
 
 This Terraform project provisions a comprehensive AWS infrastructure. It includes modules for a VPC, public and private subnets, a NAT gateway, security groups, EC2 instances, an Application Load Balancer (ALB), an Auto Scaling Group, an RDS instance, and Route 53 DNS management.
 
